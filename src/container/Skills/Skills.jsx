@@ -6,11 +6,13 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
+import { getCopy, translateText } from '../../locales';
 import './Skills.scss';
 
-const Skills = () => {
+const Skills = ({ language }) => {
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
+  const copy = getCopy(language);
 
   useEffect(() => {
     const query = '*[_type == "experiences"]';
@@ -27,7 +29,7 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">Skills & Experiences</h2>
+      <h2 className="head-text">{copy.skills.title}</h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -59,7 +61,7 @@ const Skills = () => {
               </div>
               <motion.div className="app__skills-exp-works">
                 {experience.works.map((work) => (
-                  <>
+                  <React.Fragment key={work.name}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
@@ -68,8 +70,8 @@ const Skills = () => {
                       data-for={work.name}
                       key={work.name}
                     >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
+                      <h4 className="bold-text">{translateText(language, work.name)}</h4>
+                      <p className="p-text">{translateText(language, work.company)}</p>
                     </motion.div>
                     <ReactTooltip
                       id={work.name}
@@ -77,9 +79,9 @@ const Skills = () => {
                       arrowColor="#fff"
                       className="skills-tooltip"
                     >
-                      {work.desc}
+                      {translateText(language, work.desc)}
                     </ReactTooltip>
-                  </>
+                  </React.Fragment>
                 ))}
               </motion.div>
             </motion.div>

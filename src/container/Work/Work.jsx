@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
+import { getCopy, translateText } from '../../locales';
 import './Work.scss';
 
-const Work = () => {
+const Work = ({ language }) => {
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const copy = getCopy(language);
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -38,16 +40,18 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
+      <h2 className="head-text app__work-heading">
+        {copy.work.prefix} <span>{copy.work.emphasis}</span> {copy.work.suffix}
+      </h2>
 
       <div className="app__work-filter">
-        {['React JS', 'Web App', 'Next JS', 'All'].map((item, index) => (
+        {copy.work.filters.map((item, index) => (
           <div
             key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            onClick={() => handleWorkFilter(item.value)}
+            className={`app__work-filter-item app__flex p-text ${activeFilter === item.value ? 'item-active' : ''}`}
           >
-            {item}
+            {item.label}
           </div>
         ))}
       </div>
@@ -94,11 +98,11 @@ const Work = () => {
             </div>
 
             <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
+              <h4 className="bold-text">{translateText(language, work.title)}</h4>
+              <p className="p-text" style={{ marginTop: 10 }}>{translateText(language, work.description)}</p>
 
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+                <p className="p-text">{translateText(language, work.tags[0])}</p>
               </div>
             </div>
           </div>

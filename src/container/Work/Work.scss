@@ -3,6 +3,23 @@
     width: 100%;
     flex-direction: column;
   }
+
+  .app__work-heading {
+    padding: 0 0.5rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    .app__work-heading {
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+  }
+
+  @media screen and (max-width: 390px) {
+    .app__work-heading {
+      font-size: 1.35rem;
+    }
+  }
   
   .app__work-filter {
     display: flex;
@@ -15,10 +32,12 @@
   
     .app__work-filter-item {
       padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      color: #000;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.88);
+      color: #172034;
       font-weight: 800;
+      border: 1px solid rgba(49, 59, 172, 0.13);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
   
       cursor: pointer;
       transition: all 0.3s ease;
@@ -27,6 +46,7 @@
       &:hover {
         background-color: var(--secondary-color);
         color: #fff;
+        transform: translateY(-1px);
       }
   
       @media screen and (min-width: 2000px) {
@@ -36,8 +56,26 @@
     }
   
     .item-active {
-      background-color: var(--secondary-color);
+      background: linear-gradient(135deg, var(--secondary-color), #5b63f6);
       color: #fff;
+      border-color: transparent;
+    }
+
+    @media screen and (max-width: 650px) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      width: min(100%, 360px);
+      margin: 3rem auto 1.8rem;
+
+      .app__work-filter-item {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+        min-height: 44px;
+        padding: 0.65rem 0.8rem;
+      }
     }
   }
   
@@ -53,15 +91,20 @@
   
       margin: 2rem;
       padding: 1rem;
-      border-radius: 0.5rem;
-      background-color: #fff;
+      border-radius: 0.95rem;
+      background: rgba(255, 255, 255, 0.86);
       color: #000;
+      border: 1px solid rgba(49, 59, 172, 0.11);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
   
       cursor: pointer;
       transition: all 0.3s ease;
   
       &:hover {
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 24px 42px rgba(15, 23, 42, 0.2);
+        transform: translateY(-4px);
       }
   
       @media screen and (min-width: 2000px) {
@@ -149,8 +192,10 @@
       position: absolute;
   
       padding: 0.5rem 1rem;
-      border-radius: 10px;
-      background-color: #fff;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(49, 59, 172, 0.12);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
       top: -25px;
     }
   }

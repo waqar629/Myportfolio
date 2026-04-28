@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
+import { getCopy } from '../../locales';
 import './Footer.scss';
 
-const Footer = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+const Footer = ({ language }) => {
+  const copy = getCopy(language);
+  const [formData, setFormData] = useState({ username: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -37,7 +39,7 @@ const Footer = () => {
 
   return (
     <>
-      <h2 className="head-text">Take a coffee & chat with me</h2>
+      <h2 className="head-text">{copy.footer.title}</h2>
 
       <div className="app__footer-cards">
         <div className="app__footer-card ">
@@ -52,26 +54,26 @@ const Footer = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder={copy.footer.placeholders.name} name="username" value={username} onChange={handleChangeInput} />
           </div>
           <div className="app__flex">
-            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+              <input className="p-text" type="email" placeholder={copy.footer.placeholders.email} name="email" value={email} onChange={handleChangeInput} />
           </div>
           <div>
             <textarea
               className="p-text"
-              placeholder="Your Message"
+                placeholder={copy.footer.placeholders.message}
               value={message}
               name="message"
               onChange={handleChangeInput}
             />
           </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
+            <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? copy.footer.submit : copy.footer.submitting}</button>
         </div>
       ) : (
         <div>
           <h3 className="head-text">
-            Thank you for getting in touch!
+              {copy.footer.success}
           </h3>
         </div>
       )}

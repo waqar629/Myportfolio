@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
+import { getCopy } from '../../locales';
 import './Header.scss';
 
 const scaleVariants = {
@@ -16,8 +17,11 @@ const scaleVariants = {
   },
 };
 
-const Header = () => (
-  <div className="app__header app__flex">
+const Header = ({ language }) => {
+  const copy = getCopy(language);
+
+  return (
+    <div className="app__header app__flex">
     <motion.div
       whileInView={{ x: [-100, 0], opacity: [0, 1] }}
       transition={{ duration: 0.5 }}
@@ -27,15 +31,27 @@ const Header = () => (
         <div className="badge-cmp app__flex">
           <span>👋</span>
           <div style={{ marginLeft: 20 }}>
-            <p className="p-text">Hello, I am</p>
+            <p className="p-text">{copy.header.greeting}</p>
             <h1 className="head-text">Waqar</h1>
           </div>
         </div>
 
-       <div className="tag-cmp app__flex">
-  <p className="p-text">Frontend developer</p>
-  <p className="p-text">Full-stack developer</p>
-</div>
+        <div className="tag-cmp app__flex">
+          {copy.header.roles.map((role) => (
+            <p className="p-text" key={role}>
+              {role}
+            </p>
+          ))}
+        </div>
+
+        <a
+          className="app__header-cv-btn"
+          href="https://drive.google.com/file/d/1XgmgX-mzVGBwi4QIv8-Ls_XgJK2qXlZw/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {copy.header.cvLabel}
+        </a>
       </div>
     </motion.div>
 
@@ -65,7 +81,8 @@ const Header = () => (
         </div>
       ))}
     </motion.div>
-  </div>
-);
+    </div>
+  );
+};
 
 export default AppWrap(Header, 'home');
