@@ -5,6 +5,7 @@ const portfolioCopy = {
       { id: 'about', label: 'About' },
       { id: 'work', label: 'Work' },
       { id: 'skills', label: 'Skills' },
+      { id: 'certificates', label: 'Certificates' },
       { id: 'contact', label: 'Contact' },
     ],
     header: {
@@ -55,6 +56,7 @@ const portfolioCopy = {
       { id: 'about', label: 'Über mich' },
       { id: 'work', label: 'Projekte' },
       { id: 'skills', label: 'Fähigkeiten' },
+      { id: 'certificates', label: 'Zertifikate' },
       { id: 'contact', label: 'Kontakt' },
     ],
     header: {
@@ -121,6 +123,10 @@ const sanityTextTranslations = {
     'Web App': 'Web-App',
     'Next JS': 'Next.js',
     'Full Stack Development': 'Full-Stack-Entwicklung',
+    'I had the opportunity to work with Waqar on a university project, and his full stack development skills were outstanding. He consistently delivered high quality work, solved problems efficiently, and was always willing to support the team. He is passionate about AI and enjoys exploring tools like Claude AI and GitHub Copilot to improve his workflow and build better solutions. Waqar is reliable, professional, and a great teammate. I highly recommend him for any full stack development role.': 'Ich hatte die Gelegenheit, mit Waqar an einem Universitätsprojekt zu arbeiten, und seine Full-Stack-Fähigkeiten waren hervorragend. Er lieferte durchgehend qualitativ hochwertige Arbeit, löste Probleme effizient und war stets bereit, das Team zu unterstützen. Er begeistert sich für KI und probiert gern Tools wie Claude AI und GitHub Copilot aus, um seinen Workflow zu verbessern und bessere Lösungen zu bauen. Waqar ist zuverlässig, professionell und ein großartiger Teamkollege. Ich empfehle ihn uneingeschränkt für jede Full-Stack-Entwicklerrolle.',
+    'Waqar is a talented and hardworking professional who consistently delivers high-quality work. He is reliable, knowledgeable, and a pleasure to work with. I highly recommend him to any team or organization.': 'Waqar ist ein talentierter und fleißiger Profi, der durchgehend hochwertige Arbeit abliefert. Er ist zuverlässig, kenntnisreich und eine Freude in der Zusammenarbeit. Ich empfehle ihn uneingeschränkt jedem Team und jeder Organisation.',
+    'I had the pleasure of working with Waqar on a university project, where he consistently demonstrated strong frontend, web development, and full stack development skills. He has a great eye for building clean, responsive, and user friendly applications while also understanding the backend side of development. He is always eager to learn new technologies, adapts quickly, and contributes valuable ideas to the team. Working with Waqar was a great experience, and I would confidently recommend him for any web or full stack development role.': 'Es war mir eine Freude, mit Waqar an einem Universitätsprojekt zu arbeiten, bei dem er durchgehend starke Frontend-, Web- und Full-Stack-Fähigkeiten zeigte. Er hat ein gutes Auge für saubere, responsive und benutzerfreundliche Anwendungen und versteht zugleich die Backend-Seite der Entwicklung. Er lernt gern neue Technologien, findet sich schnell ein und bringt wertvolle Ideen ins Team ein. Die Zusammenarbeit mit Waqar war eine großartige Erfahrung, und ich würde ihn bedenkenlos für jede Web- oder Full-Stack-Rolle empfehlen.',
+    'Studied together': 'Gemeinsam studiert',
     'End-to-end web applications, from polished React and Next JS interfaces to Node JS APIs, Prisma data models and Strapi CMS back offices.': 'Durchgängige Webanwendungen, von ausgefeilten React- und Next-JS-Oberflächen bis zu Node-JS-APIs, Prisma-Datenmodellen und Strapi-CMS-Backends.',
     'AI Interview Coach (Personal Project)': 'AI Interview Coach (Privatprojekt)',
     'Built an AI-powered mock interview platform supporting HR, technical and coding interviews with adaptive follow-up questions, CV and job-based personalization, voice interaction and automated evaluation reports.': 'KI-gestützte Plattform für Probe-Vorstellungsgespräche (HR, Technik, Coding) mit adaptiven Folgefragen, Personalisierung nach Lebenslauf und Stelle, Sprachinteraktion und automatischen Auswertungsberichten.',

@@ -312,3 +312,36 @@
   20%, 40% { transform: rotate(-8deg); }
   50% { transform: rotate(10deg); }
 }
+
+.app__play-btn {
+  position: fixed;
+  left: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 160;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid #b8924f;
+  background: #14163a;
+  color: #e9d7b0;
+  font: 700 0.9rem var(--font-base);
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(20, 22, 58, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  span {
+    display: inline-block;
+    animation: floatY 2.6s ease-in-out infinite;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 36px rgba(20, 22, 58, 0.38);
+  }
+
+  @media screen and (max-width: 450px) {
+    left: 0.9rem;
+    bottom: 0.9rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+}

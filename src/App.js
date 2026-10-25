@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { About, Footer, Header, Skills, Testimonial, Work } from './container';
-import { Navbar, ScrollProgress, BackToTop, ConnectWidget } from './components';
+import React, { Suspense, lazy, useCallback, useEffect, useState } from 'react';
+import { About, Certificates, Footer, Header, Skills, Testimonial, Work } from './container';
+import { Navbar, ScrollProgress, ConnectWidget } from './components';
 import './App.scss';
+
+const PlayMode = lazy(() => import('./components/PlayMode/PlayMode'));
 
 const App = () => {
   const [language, setLanguage] = useState(() => {
@@ -11,6 +13,9 @@ const App = () => {
 
     return window.localStorage.getItem('portfolio-language') || 'en';
   });
+
+  const [playing, setPlaying] = useState(false);
+  const closePlay = useCallback(() => setPlaying(false), []);
 
   useEffect(() => {
     window.localStorage.setItem('portfolio-language', language);
@@ -25,10 +30,18 @@ const App = () => {
       <About language={language} />
       <Work language={language} />
       <Skills language={language} />
+      <Certificates language={language} />
       <Testimonial language={language} />
-      <Footer language={language} />
+      <Footer language={language} onPlay={() => setPlaying(true)} />
+      <button type="button" className="app__play-btn" onClick={() => setPlaying(true)}>
+        <span aria-hidden="true">🎮</span> {language === 'de' ? 'Fahr durch mein Portfolio' : 'Drive my portfolio'}
+      </button>
+      {playing && (
+        <Suspense fallback={null}>
+          <PlayMode language={language} onClose={closePlay} />
+        </Suspense>
+      )}
       <ConnectWidget language={language} />
-      <BackToTop label={language === 'de' ? 'Nach oben' : 'Back to top'} />
     </div>
   );
 };

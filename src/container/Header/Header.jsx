@@ -32,7 +32,7 @@ const Header = ({ language }) => {
           <span>👋</span>
           <div style={{ marginLeft: 20 }}>
             <p className="p-text">{copy.header.greeting}</p>
-            <h1 className="head-text">Waqar</h1>
+            <h1 className="head-text">Hassan</h1>
           </div>
         </div>
 

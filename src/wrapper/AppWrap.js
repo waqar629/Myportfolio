@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationDots, SocialMedia } from '../components';
+import { NavigationDots } from '../components';
 import { getCopy } from '../locales';
 
 const AppWrap = (Component, idName, classNames) => function HOC(props) {
@@ -7,13 +7,14 @@ const AppWrap = (Component, idName, classNames) => function HOC(props) {
 
   return (
     <div id={idName} className={`app__container ${classNames}`}>
-      <SocialMedia />
       <div className="app__wrapper app__flex">
         <Component {...props} />
-        <div className="copyright">
-          <p className="copyright-text">{copy.copyright.lineOne}</p>
-          <p className="copyright-text">{copy.copyright.lineTwo}</p>
-        </div>
+        {idName === 'contact' && (
+          <div className="copyright">
+            <p className="copyright-text">{copy.copyright.lineOne}</p>
+            <p className="copyright-text">{copy.copyright.lineTwo}</p>
+          </div>
+        )}
       </div>
       <NavigationDots active={idName} />
     </div>

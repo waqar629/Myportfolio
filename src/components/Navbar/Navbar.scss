@@ -23,18 +23,39 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-  
-    img {
-      width: 90px;
-      height: 20px;
-  
-      @media screen and (min-width: 2000px) {
-        width: 180px;
-        height: 40px;
-      }
+  }
+
+  .app__logo {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+    padding-left: 0.85rem;
+    border-left: 2px solid #b8924f;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(3px);
     }
   }
-  
+
+  .app__logo-main {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #14163a;
+  }
+
+  .app__logo-sub {
+    margin-top: 0.3rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #b8924f;
+  }
+
   .app__navbar-links {
     flex: 1;
     display: flex;
