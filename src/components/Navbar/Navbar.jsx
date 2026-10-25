@@ -73,7 +73,7 @@ const Navbar = ({ language, onLanguageChange }) => {
               <LanguageSelector language={language} onChange={handleLanguageChange} compact />
               <a
                 className="app__navbar-menu-cv"
-                href="https://drive.google.com/file/d/1XgmgX-mzVGBwi4QIv8-Ls_XgJK2qXlZw/view?usp=sharing"
+                href="https://drive.google.com/file/d/15dNSnHsnFqvZQcfzBFp9VOWF6fdDfYqu/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setToggle(false)}

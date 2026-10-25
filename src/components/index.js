@@ -1,6 +1,8 @@
 import NavigationDots from './NavigationDots';
 import SocialMedia from './SocialMedia';
 import Navbar from './Navbar/Navbar';
+import ScrollProgress from './Effects/ScrollProgress';
+import BackToTop from './Effects/BackToTop';
 import LanguageSelector from './LanguageSelector/LanguageSelector';
 
 export {
@@ -8,4 +10,6 @@ export {
   SocialMedia,
   Navbar,
   LanguageSelector,
+  ScrollProgress,
+  BackToTop,
 };

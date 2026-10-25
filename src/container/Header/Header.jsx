@@ -46,7 +46,7 @@ const Header = ({ language }) => {
 
         <a
           className="app__header-cv-btn"
-          href="https://drive.google.com/file/d/1XgmgX-mzVGBwi4QIv8-Ls_XgJK2qXlZw/view?usp=sharing"
+          href="https://drive.google.com/file/d/15dNSnHsnFqvZQcfzBFp9VOWF6fdDfYqu/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >

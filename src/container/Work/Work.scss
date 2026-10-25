@@ -36,15 +36,15 @@
       background-color: rgba(255, 255, 255, 0.88);
       color: #172034;
       font-weight: 800;
-      border: 1px solid rgba(49, 59, 172, 0.13);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(184, 146, 79, 0.4);
+      box-shadow: 0 10px 20px rgba(20, 22, 58, 0.06);
   
       cursor: pointer;
       transition: all 0.3s ease;
       margin: 0.5rem;
   
       &:hover {
-        background-color: var(--secondary-color);
+        background-color: #14163a;
         color: #fff;
         transform: translateY(-1px);
       }
@@ -56,9 +56,9 @@
     }
   
     .item-active {
-      background: linear-gradient(135deg, var(--secondary-color), #5b63f6);
-      color: #fff;
-      border-color: transparent;
+      background: #14163a;
+      color: #e9d7b0;
+      border-color: var(--gold-color);
     }
 
     @media screen and (max-width: 650px) {
@@ -80,22 +80,35 @@
   }
   
   .app__work-portfolio {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem 1.5rem;
+    width: 100%;
+    max-width: 1240px;
+    margin: 1.5rem auto 0;
+    align-items: stretch;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (max-width: 640px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   
     .app__work-item {
-      width: 270px;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: stretch;
       flex-direction: column;
   
-      margin: 2rem;
+      margin: 0;
       padding: 1rem;
-      border-radius: 0.95rem;
-      background: rgba(255, 255, 255, 0.86);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0.9));
       color: #000;
-      border: 1px solid rgba(49, 59, 172, 0.11);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+      border: 1px solid rgba(184, 146, 79, 0.28);
+      box-shadow: 0 18px 40px rgba(20, 22, 58, 0.09);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
   
@@ -103,12 +116,12 @@
       transition: all 0.3s ease;
   
       &:hover {
-        box-shadow: 0 24px 42px rgba(15, 23, 42, 0.2);
-        transform: translateY(-4px);
+        border-color: rgba(184, 146, 79, 0.65);
+        box-shadow: 0 30px 56px rgba(20, 22, 58, 0.16);
+        transform: translateY(-6px);
       }
   
       @media screen and (min-width: 2000px) {
-        width: 470px;
         padding: 1.25rem;
         border-radius: 0.75rem;
       }
@@ -122,15 +135,17 @@
   
   .app__work-img {
     width: 100%;
-    height: 230px;
+    height: 200px;
+    flex-shrink: 0;
   
     position: relative;
   
     img {
       width: 100%;
       height: 100%;
-      border-radius: 0.5rem;
+      border-radius: 14px;
       object-fit: cover;
+      object-position: top center;
     }
   
     @media screen and (min-width: 2000px) {
@@ -146,9 +161,9 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(180deg, rgba(20, 22, 58, 0.35), rgba(20, 22, 58, 0.82));
   
-    border-radius: 0.5rem;
+    border-radius: 14px;
     opacity: 0;
     transition: all 0.3s ease;
   
@@ -156,7 +171,8 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(184, 146, 79, 0.8);
       color: #fff;
   
       margin: 1rem;
@@ -179,9 +195,15 @@
     position: relative;
     flex-direction: column;
   
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+
     h4 {
-      margin-top: 1rem;
-      line-height: 1.5;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin-top: 1.1rem;
+      line-height: 1.35;
   
       @media screen and (min-width: 2000px) {
         margin-top: 3rem;
@@ -191,12 +213,21 @@
     .app__work-tag {
       position: absolute;
   
-      padding: 0.5rem 1rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 999px;
-      background-color: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(49, 59, 172, 0.12);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
-      top: -25px;
+      background-color: #14163a;
+      border: 1px solid var(--gold-color);
+      box-shadow: 0 10px 20px rgba(20, 22, 58, 0.2);
+      top: -26px;
+      left: 0.5rem;
+
+      p {
+        color: #e9d7b0;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
     }
   }
   

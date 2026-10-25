@@ -125,16 +125,31 @@
   }
   
   .head-text {
+    font-family: var(--font-display);
     font-size: 2.75rem;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
-    color: var(--black-color);
+    color: #14163a;
     text-transform: capitalize;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     text-wrap: balance;
-  
+    position: relative;
+    padding-bottom: 1.4rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 64px;
+      height: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
+    }
+
     span {
       color: var(--secondary-color);
+      font-style: italic;
     }
   
     @media screen and (min-width: 2000px) {
@@ -159,7 +174,8 @@
   
   .bold-text {
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: 0.005em;
     color: var(--black-color);
     text-align: left;
   
@@ -266,3 +282,33 @@
     }
   }
   
+.head-text::after {
+  animation: goldPulse 3.2s ease-in-out infinite;
+}
+
+@keyframes goldPulse {
+  0%, 100% { width: 48px; opacity: 0.7; }
+  50% { width: 96px; opacity: 1; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-130%) skewX(-20deg); }
+  60%, 100% { transform: translateX(330%) skewX(-20deg); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0); }
+  10%, 30% { transform: rotate(14deg); }
+  20%, 40% { transform: rotate(-8deg); }
+  50% { transform: rotate(10deg); }
+}

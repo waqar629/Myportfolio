@@ -120,6 +120,14 @@ const sanityTextTranslations = {
     'All': 'Alle',
     'Web App': 'Web-App',
     'Next JS': 'Next.js',
+    'Full Stack Development': 'Full-Stack-Entwicklung',
+    'End-to-end web applications, from polished React and Next JS interfaces to Node JS APIs, Prisma data models and Strapi CMS back offices.': 'Durchgängige Webanwendungen, von ausgefeilten React- und Next-JS-Oberflächen bis zu Node-JS-APIs, Prisma-Datenmodellen und Strapi-CMS-Backends.',
+    'AI Interview Coach (Personal Project)': 'AI Interview Coach (Privatprojekt)',
+    'Built an AI-powered mock interview platform supporting HR, technical and coding interviews with adaptive follow-up questions, CV and job-based personalization, voice interaction and automated evaluation reports.': 'KI-gestützte Plattform für Probe-Vorstellungsgespräche (HR, Technik, Coding) mit adaptiven Folgefragen, Personalisierung nach Lebenslauf und Stelle, Sprachinteraktion und automatischen Auswertungsberichten.',
+    'K Club Golf Booking Platform': 'K Club Golf-Buchungsplattform',
+    'Developed a golf tee time booking platform for The K Club, Ireland. Golfers select players, holes, date and time, complete a secure checkout and reserve online, while content and booking operations are managed through Strapi CMS.': 'Golf-Buchungsplattform für The K Club, Irland. Golfer wählen Spieler, Löcher, Datum und Uhrzeit, bezahlen sicher und reservieren online; Inhalte und Buchungen werden über das Strapi CMS verwaltet.',
+    'Cascais Golf Multi-Club Booking': 'Cascais Golf Multi-Club-Buchung',
+    'Built a multi-club golf booking platform for clubs in Cascais, Portugal. Users select clubs, players, date and time slots and complete payment through a unified reservation flow.': 'Multi-Club-Buchungsplattform für Golfclubs in Cascais, Portugal. Nutzer wählen Club, Spieler, Datum und Zeit und bezahlen in einem einheitlichen Reservierungsablauf.',
   },
 };
 

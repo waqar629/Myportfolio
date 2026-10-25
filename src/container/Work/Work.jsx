@@ -15,7 +15,7 @@ const Work = ({ language }) => {
   const copy = getCopy(language);
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "works"] | order(_updatedAt desc)';
 
     client.fetch(query).then((data) => {
       setWorks(data);
@@ -62,7 +62,14 @@ const Work = ({ language }) => {
         className="app__work-portfolio"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
+          <motion.div
+            className="app__work-item app__flex"
+            key={work._id || index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, delay: (index % 3) * 0.12, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div
               className="app__work-img app__flex"
             >
@@ -105,7 +112,7 @@ const Work = ({ language }) => {
                 <p className="p-text">{translateText(language, work.tags[0])}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </>

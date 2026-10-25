@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { About, Footer, Header, Skills, Testimonial, Work } from './container';
-import { Navbar } from './components';
+import { Navbar, ScrollProgress, BackToTop } from './components';
 import './App.scss';
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <ScrollProgress />
       <Navbar language={language} onLanguageChange={setLanguage} />
       <Header language={language} />
       <About language={language} />
@@ -26,6 +27,7 @@ const App = () => {
       <Skills language={language} />
       <Testimonial language={language} />
       <Footer language={language} />
+      <BackToTop label={language === 'de' ? 'Nach oben' : 'Back to top'} />
     </div>
   );
 };

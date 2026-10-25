@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap");
 
 :root {
   --font-base: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --gold-color: #b8924f;
 
   --primary-color: #edf2f8;
   --secondary-color: #313bac;
@@ -17,4 +19,39 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+::selection {
+  background: #14163a;
+  color: #e9d7b0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef3fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #313bac, #b8924f);
+  border-radius: 10px;
+  border: 2px solid #eef3fb;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-color);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
