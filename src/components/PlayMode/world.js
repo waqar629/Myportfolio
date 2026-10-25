@@ -224,10 +224,11 @@ const buildWorld = ({ scene, zones, obstacles }) => {
 
   let placed = 0;
   let guard = 0;
-  while (placed < 42 && guard < 3000) {
+  while (placed < 40 && guard < 3000) {
     guard += 1;
     const angle = rand() * Math.PI * 2;
-    const dist = 8 + rand() * (WORLD_RADIUS - 10);
+    // first 8 sit inside the play area, the rest form a forest ring near the edge
+    const dist = placed < 8 ? 12 + rand() * 60 : WORLD_RADIUS - 22 + rand() * 18;
     const x = Math.cos(angle) * dist;
     const z = Math.sin(angle) * dist;
     if (!clear(x, z, 3.5)) continue;

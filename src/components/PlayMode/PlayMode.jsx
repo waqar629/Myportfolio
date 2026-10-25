@@ -177,12 +177,16 @@ const PlayMode = ({ language = 'en', onClose }) => {
       group.add(ring);
       rings.push(ring);
 
-      const sign = new THREE.Mesh(
-        new THREE.PlaneGeometry(8, 3),
-        new THREE.MeshBasicMaterial({ map: makeLabel(copy.zones[zone.id].title, copy.zones[zone.id].tag), side: THREE.DoubleSide }),
-      );
-      sign.position.set(0, 8.4, -zone.radius + 0.6);
-      group.add(sign);
+      const labelTexture = makeLabel(copy.zones[zone.id].title, copy.zones[zone.id].tag);
+      [0, Math.PI].forEach((turn) => {
+        const face = new THREE.Mesh(
+          new THREE.PlaneGeometry(8, 3),
+          new THREE.MeshBasicMaterial({ map: labelTexture }),
+        );
+        face.position.set(0, 8.4, -zone.radius + 0.6 + (turn ? -0.03 : 0.03));
+        face.rotation.y = turn;
+        group.add(face);
+      });
 
       [-3.6, 3.6].forEach((offset) => {
         const post = new THREE.Mesh(
@@ -455,6 +459,20 @@ const PlayMode = ({ language = 'en', onClose }) => {
           </button>
         </div>
       </div>
+
+      <aside className="play__checklist" aria-label={copy.progress}>
+        <p className="play__checklist-title">{copy.progress} <b>{visited.length}/{zones.length}</b></p>
+        <ul>
+          {zones.map((z) => (
+            <li key={z.id} className={visited.includes(z.id) ? 'is-done' : ''}>
+              <span className="play__tick" aria-hidden="true">{visited.includes(z.id) ? '✓' : ''}</span>
+              <span>{copy.zones[z.id].title}</span>
+              <em>{visited.includes(z.id) ? copy.visited : copy.todo}</em>
+            </li>
+          ))}
+        </ul>
+        {visited.length === zones.length && <p className="play__checklist-done">{copy.allDone}</p>}
+      </aside>
 
       {showHelp && (
         <div className="play__help">
